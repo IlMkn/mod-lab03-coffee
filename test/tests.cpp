@@ -89,3 +89,52 @@ TEST(test13, actionGetStateTrue) {
 	temp.choice(1);
 	ASSERT_EQ(3, temp.getState());
 }
+
+TEST(test14, actionCookTrue) {
+	Automata temp;
+	temp.on();
+	temp.coin(100);
+	temp.choice(1);
+	ASSERT_EQ(1, temp.cook());
+}
+
+TEST(test15, actionCookFalse) {
+	Automata temp;
+	ASSERT_EQ(0, temp.cook());
+}
+
+TEST(test16, actionFinishTrue) {
+	Automata temp;
+	temp.on();
+	temp.coin(100);
+	temp.choice(1);
+	temp.cook();
+	ASSERT_EQ(1, temp.finish());
+}
+
+TEST(test17, actionFinishFalse) {
+	Automata temp;
+	ASSERT_EQ(0, temp.finish());
+}
+
+TEST(test18, actionGetStateTrue) {
+	Automata temp;
+	temp.on();
+	ASSERT_EQ(1, temp.getState());
+}
+
+TEST(test19, actionGetStateTrue) {
+	Automata temp;
+	temp.on();
+	temp.coin(100);
+	ASSERT_EQ(2, temp.getState());
+}
+
+TEST(test20, actionGetStateTrue) {
+	Automata temp;
+	temp.on();
+	temp.coin(100);
+	temp.choice(1);
+	temp.cook();
+	ASSERT_EQ(4, temp.getState());
+}
