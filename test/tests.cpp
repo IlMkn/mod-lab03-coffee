@@ -4,137 +4,137 @@
 #include "Automata.h"
 
 TEST(test1, actionOnTrue) {
-	Automata temp;
+Automata temp;
 
-	ASSERT_EQ(1, temp.on());
+ASSERT_EQ(1, temp.on());
 }
 
 TEST(test2, actionOffFalse) {
-	Automata temp;
+Automata temp;
 
-	ASSERT_EQ(0, temp.off());
+ASSERT_EQ(0, temp.off());
 }
 
 TEST(test3, actionOffTrue) {
-	Automata temp;
-	temp.on();
+Automata temp;
+temp.on();
 
-	ASSERT_EQ(1, temp.off());
+ASSERT_EQ(1, temp.off());
 }
 
 TEST(test4, actionCoinFalse) {
-	Automata temp;
+Automata temp;
 
-	ASSERT_EQ(0, temp.coin(10));
+ASSERT_EQ(0, temp.coin(10));
 }
 
 TEST(test5, actionCoinTrue) {
-	Automata temp;
-	temp.on();
+Automata temp;
+temp.on();
 
-	ASSERT_EQ(1, temp.coin(10));
+ASSERT_EQ(1, temp.coin(10));
 }
 
 TEST(test6, actionGetStateTrue) {
-	Automata temp;
+Automata temp;
 
-	ASSERT_EQ(0, temp.getState());
+ASSERT_EQ(0, temp.getState());
 }
 
 TEST(test7, actionChoiceFalse) {
-	Automata temp;
+Automata temp;
 
-	ASSERT_EQ(0, temp.choice(1));
+ASSERT_EQ(0, temp.choice(1));
 }
 
 TEST(test8, actionChoiceTrue) {
-	Automata temp;
-	temp.on();
-	temp.coin(100);
-	ASSERT_EQ(1, temp.choice(1));
+Automata temp;
+temp.on();
+temp.coin(100);
+ASSERT_EQ(1, temp.choice(1));
 }
 
 TEST(test9, actionCheckFalse) {
-	Automata temp;
+Automata temp;
 
-	ASSERT_EQ(0, temp.check());
+ASSERT_EQ(0, temp.check());
 }
 
 TEST(test10, actionCheckTrue) {
-	Automata temp;
-	temp.on();
-	temp.coin(100);
-	temp.choice(1);
-	ASSERT_EQ(1, temp.check());
+Automata temp;
+temp.on();
+temp.coin(100);
+temp.choice(1);
+ASSERT_EQ(1, temp.check());
 }
 
 TEST(test11, actionCancelFalse) {
-	Automata temp;
+Automata temp;
 
-	ASSERT_EQ(0, temp.cancel());
+ASSERT_EQ(0, temp.cancel());
 }
 
 TEST(test12, actionCancelTrue) {
-	Automata temp;
-	temp.on();
-	temp.coin(100);
-	temp.choice(1);
-	ASSERT_EQ(1, temp.cancel());
+Automata temp;
+temp.on();
+temp.coin(100);
+temp.choice(1);
+ASSERT_EQ(1, temp.cancel());
 }
 
 TEST(test13, actionGetStateTrue) {
-	Automata temp;
-	temp.on();
-	temp.coin(100);
-	temp.choice(1);
-	ASSERT_EQ(3, temp.getState());
+Automata temp;
+temp.on();
+temp.coin(100);
+temp.choice(1);
+ASSERT_EQ(3, temp.getState());
 }
 
 TEST(test14, actionCookTrue) {
-	Automata temp;
-	temp.on();
-	temp.coin(100);
-	temp.choice(1);
-	ASSERT_EQ(1, temp.cook());
+Automata temp;
+temp.on();
+temp.coin(100);
+temp.choice(1);
+ASSERT_EQ(1, temp.cook());
 }
 
 TEST(test15, actionCookFalse) {
-	Automata temp;
-	ASSERT_EQ(0, temp.cook());
+Automata temp;
+ASSERT_EQ(0, temp.cook());
 }
 
 TEST(test16, actionFinishTrue) {
-	Automata temp;
-	temp.on();
-	temp.coin(100);
-	temp.choice(1);
-	temp.cook();
-	ASSERT_EQ(1, temp.finish());
+Automata temp;
+temp.on();
+temp.coin(100);
+temp.choice(1);
+temp.cook();
+ASSERT_EQ(1, temp.finish());
 }
 
 TEST(test17, actionFinishFalse) {
-	Automata temp;
-	ASSERT_EQ(0, temp.finish());
+Automata temp;
+ASSERT_EQ(0, temp.finish());
 }
 
 TEST(test18, actionGetStateTrue) {
-	Automata temp;
-	temp.on();
-	ASSERT_EQ(1, temp.getState());
+Automata temp;
+temp.on();
+ASSERT_EQ(1, temp.getState());
 }
 
 TEST(test19, actionGetStateTrue) {
-	Automata temp;
-	temp.on();
-	temp.coin(100);
-	ASSERT_EQ(2, temp.getState());
+Automata temp;
+temp.on();
+temp.coin(100);
+ASSERT_EQ(2, temp.getState());
 }
 
 TEST(test20, actionGetStateTrue) {
-	Automata temp;
-	temp.on();
-	temp.coin(100);
-	temp.choice(1);
-	temp.cook();
-	ASSERT_EQ(4, temp.getState());
+Automata temp;
+temp.on();
+temp.coin(100);
+temp.choice(1);
+temp.cook();
+ASSERT_EQ(4, temp.getState());
 }
