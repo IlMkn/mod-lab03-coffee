@@ -5,7 +5,7 @@
 
 Automata::Automata() {
 state = STATES::Off;
-std::string tempmenu[] = { 
+std::string tempmenu[] = {
 "Black tea",
 "Green tea",
 "Lemon tea",
@@ -47,7 +47,7 @@ return 0;
 }
 }
 int Automata::coin(int c) {
-if ((state == STATES::Wait)||(state ==STATES::Accept)) {
+if ((state == STATES::Wait) || (state ==STATES::Accept)) {
 state = STATES::Accept;
 cash += c;
 std::cout << "Money is accepted" << std::endl;
@@ -68,9 +68,9 @@ std::cout << "State - " << state << std::endl;
 return state;
 }
 int Automata::choice(int c) {
-if ((state == STATES::Accept)&&(c<11)&&(c>0)) {
+if ((state == STATES::Accept) && (c < 11)&&(c > 0)) {
 state = STATES::Check;
-std::cout << "Your choice is accepted - " <<menu[c-1]<< std::endl;
+std::cout << "Your choice is accepted - " << menu[c-1] << std::endl;
 chosenProduct = c-1;
 return 1;
 } else {
@@ -106,7 +106,7 @@ return 0;
 int Automata::cook() {
 if (state == STATES::Check) {
 state = STATES::Cook;
-std::cout << "Cooking chosen product..."<<std::endl;
+std::cout << "Cooking chosen product..." << std::endl;
 return 1;
 } else {
 std::cout << "Can't cook product at this moment" << std::endl;
