@@ -3,9 +3,10 @@
 #pragma once
 
 #include <iostream>
+#include <string>
 
 class Automata {
- private: 
+ private:
        enum STATES { Off, Wait, Accept, Check, Cook };
        int cash;
        std::string menu[10];
@@ -14,14 +15,14 @@ class Automata {
        int chosenProduct;
 
  public: Automata();
-      int on();
-      int off();
-      int coin(int);
-      void getMenu();
-      int getState();
-      int choice(int);
-      int check();
-      int cancel();
-      int cook();
-      int finish();
+       int on();
+       int off();
+       int coin(int);
+       void getMenu();
+       int getState();
+       int choice(int);
+       int check();
+       int cancel();
+       int cook();
+       int finish();
 };
