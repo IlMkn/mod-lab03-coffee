@@ -1,7 +1,6 @@
 #include "Automata.h"
 
-Automata::Automata()
-{
+Automata::Automata() {
 	state = STATES::Off;
 	std::string tempmenu[] = { "Black tea","Green tea","Lemon tea","Milk tea","Ginger tea","Espresso","Cappuccino","Latte","Black coffee","Americano" };
 	for (int i = 0; i < 10; i++)
