@@ -1,8 +1,9 @@
-﻿#include <iostream>
+// Copyright 2022 GHA Test Team
+
+#include <iostream>
 #include "Automata.h"
 
-int main()
-{
+int main() {
     Automata example;
 
     int yourCash = 50;
