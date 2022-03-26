@@ -13,7 +13,8 @@ class Automata {
        int prices[10];
        STATES state;
        int chosenProduct;
- public: Automata();
+ public:
+       Automata();
        int on();
        int off();
        int coin(int);
