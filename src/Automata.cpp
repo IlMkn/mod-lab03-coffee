@@ -58,7 +58,7 @@ int Automata::coin(int c)
 		return 0;
 	}
 }
-int Automata::getMenu()
+void Automata::getMenu()
 {
 	std::cout << "Menu:" << std::endl;
 
@@ -102,6 +102,11 @@ int Automata::check()
 			std::cout << "There is not enough money" << std::endl;
 			return 0;
 		}
+	}
+	else 
+	{
+		std::cout << "Can't check anything yet" << std::endl;
+		return 0;
 	}
 }
 int Automata::cancel()
