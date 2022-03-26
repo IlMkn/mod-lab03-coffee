@@ -15,7 +15,7 @@ public: Automata();
       int on();
       int off();
       int coin(int);
-      int getMenu();
+      void getMenu();
       int getState();
       int choice(int);
       int check();
