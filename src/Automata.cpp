@@ -5,150 +5,121 @@
 
 Automata::Automata() {
 state = STATES::Off;
-std::string tempmenu[] = { "Black tea","Green tea","Lemon tea","Milk tea","Ginger tea","Espresso","Cappuccino","Latte","Black coffee","Americano" };
-for (int i = 0; i < 10; i++)
-{
-	menu[i] = tempmenu[i];
+std::string tempmenu[] = { 
+"Black tea",
+"Green tea",
+"Lemon tea",
+"Milk tea",
+"Ginger tea",
+"Espresso",
+"Cappuccino",
+"Latte",
+"Black coffee",
+"Americano"
+};
+for (int i = 0; i < 10; i++) {
+menu[i] = tempmenu[i];
 }
-int tempprice[] = { 30,25,35,40,30,30,45,40,50,55 };
-for (int i = 0; i < 10; i++)
-{
-	prices[i] = tempprice[i];
+int tempprice[] = { 30, 25, 35, 40, 30, 30, 45, 40, 50, 55 };
+for (int i = 0; i < 10; i++) {
+prices[i] = tempprice[i];
 }
 cash = 0;
 }
-int Automata::on()
-{
-if (state == STATES::Off)
-{
- state = STATES::Wait;
- std::cout << "The vending machine is turning on" << std::endl;
- return 1;
-}
-else
-{
- std::cout << "The vending machine is already on" << std::endl;
- return 0;
+int Automata::on() {
+if (state == STATES::Off) {
+state = STATES::Wait;
+std::cout << "The vending machine is turning on" << std::endl;
+return 1;
+} else {
+std::cout << "The vending machine is already on" << std::endl;
+return 0;
 }
 }
-int Automata::off()
-{
-if (state == STATES::Wait)
-{
- state = STATES::Off;
- std::cout << "The venidng machine is turning off" << std::endl;
- return 1;
-}
-else
-{
- std::cout << "Can't turn off the machine" << std::endl;
- return 0;
+int Automata::off() {
+if (state == STATES::Wait) {
+state = STATES::Off;
+std::cout << "The venidng machine is turning off" << std::endl;
+return 1;
+} else {
+std::cout << "Can't turn off the machine" << std::endl;
+return 0;
 }
 }
-int Automata::coin(int c)
-{
-if ((state == STATES::Wait)||(state ==STATES::Accept))
-{
- state = STATES::Accept;
- cash += c;
- std::cout << "Money is accepted" << std::endl;
- return 1;
-}
-else
-{
- std::cout << "Can't accept money yet" << std::endl;
- return 0;
+int Automata::coin(int c) {
+if ((state == STATES::Wait)||(state ==STATES::Accept)) {
+state = STATES::Accept;
+cash += c;
+std::cout << "Money is accepted" << std::endl;
+return 1;
+} else {
+std::cout << "Can't accept money yet" << std::endl;
+return 0;
 }
 }
-void Automata::getMenu()
-{
+void Automata::getMenu() {
 std::cout << "Menu:" << std::endl;
-for (int i = 0; i < 10; i++)
-{
- std::cout << menu[i] << std::endl;
+for (int i = 0; i < 10; i++) {
+std::cout << menu[i] << std::endl;
 }
 }
-int Automata::getState()
-{
- std::cout << "State - " << state << std::endl;
- return state;
+int Automata::getState() {
+std::cout << "State - " << state << std::endl;
+return state;
 }
-int Automata::choice(int c)
-{
-if ((state == STATES::Accept)&&(c<11)&&(c>0))
-{
- state = STATES::Check;
- std::cout << "Your choice is accepted - " <<menu[c-1]<< std::endl;
- chosenProduct = c-1;
- return 1;
-}
-else
-{
- std::cout << "Can't accept your choice" << std::endl;
- return 0;
+int Automata::choice(int c) {
+if ((state == STATES::Accept)&&(c<11)&&(c>0)) {
+state = STATES::Check;
+std::cout << "Your choice is accepted - " <<menu[c-1]<< std::endl;
+chosenProduct = c-1;
+return 1;
+} else {
+std::cout << "Can't accept your choice" << std::endl;
+return 0;
 }
 }
-int Automata::check()
-{
-if (state == STATES::Check)
-{
- if (cash >= prices[chosenProduct])
- {
-  std::cout << "Payment is succesful" << std::endl;
-  cash = cash - prices[chosenProduct];
-  return 1;
- }
- else
-  {
-   std::cout << "There is not enough money" << std::endl;
-   return 0;
-  }
+int Automata::check() {
+if (state == STATES::Check) {
+if (cash >= prices[chosenProduct]) {
+std::cout << "Payment is succesful" << std::endl;
+cash = cash - prices[chosenProduct];
+return 1;
+} else {
+std::cout << "There is not enough money" << std::endl;
+return 0;
 }
-else 
-{
- std::cout << "Can't check anything yet" << std::endl;
- return 0;
+} else {
+std::cout << "Can't check anything yet" << std::endl;
+return 0;
 }
 }
-int Automata::cancel()
-{
-if ((state == STATES::Accept) || (state == STATES::Check))
-{
- std::cout << "Operation canceled" << std::endl;
- cash = 0;
- return 1;
-}
-else
-{
- std::cout << "Can't cancel operation at this moment" << std::endl;
- return 0;
+int Automata::cancel() {
+if ((state == STATES::Accept) || (state == STATES::Check)) {
+std::cout << "Operation canceled" << std::endl;
+cash = 0;
+return 1;
+} else {
+std::cout << "Can't cancel operation at this moment" << std::endl;
+return 0;
 }
 }
-int Automata::cook()
-{
-if (state == STATES::Check)
-{
- state = STATES::Cook;
- std::cout << "Cooking chosen product..."<<std::endl;
- return 1;
-}
-else
-{
- std::cout << "Can't cook product at this moment" << std::endl;
- return 0;
+int Automata::cook() {
+if (state == STATES::Check) {
+state = STATES::Cook;
+std::cout << "Cooking chosen product..."<<std::endl;
+return 1;
+} else {
+std::cout << "Can't cook product at this moment" << std::endl;
+return 0;
 }
 }
-int Automata::finish()
-{
-if (state == STATES::Cook)
-{
- state == STATES::Wait;
- std::cout << "Cooking is finished" << std::endl;
- return 1;
-}
-else
-{
- std::cout << "Can't finish any operation at this moment" << std::endl;
- return 0;
+int Automata::finish() {
+if (state == STATES::Cook) {
+state == STATES::Wait;
+std::cout << "Cooking is finished" << std::endl;
+return 1;
+} else {
+std::cout << "Can't finish any operation at this moment" << std::endl;
+return 0;
 }
 }
